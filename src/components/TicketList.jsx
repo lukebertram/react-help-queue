@@ -3,7 +3,10 @@ import Ticket from "./Ticket";
 
 function TicketList(props){
   return(
-    <Ticket />
+    <Ticket
+        location="7G"
+        names="Dirty Charles and Cool Dennis"
+        issue="Firebase is literally on fire"/>
   );
 }
 
