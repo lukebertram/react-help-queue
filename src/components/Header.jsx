@@ -1,8 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header(){
   return(
-    <h1>Hot modules, dawg!</h1>
+    <div>
+      <h1>Hot modules, dawg!</h1>
+      <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
+    </div>
   );
 }
 

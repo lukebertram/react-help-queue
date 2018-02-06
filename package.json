@@ -13,8 +13,9 @@
   "license": "ISC",
   "dependencies": {
     "prop-types": "^15.6.0",
-    "react": "^16.1.1",
-    "react-dom": "^16.1.1"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.1",

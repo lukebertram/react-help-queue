@@ -9,13 +9,13 @@ const masterTicketList = [
   },
   {
     names: 'Jimbo and Kearney',
-    location: 'Attitud Adjustment and Reprogramming Center',
+    location: 'Attitude Adjustment and Reprogramming Center',
     issue: 'Blood is lost'
   },
   {
     names: 'Dirty Charles and Cool Dennis',
     location: 'Mars Base 7',
-    issue: 'Out of Sweet\'n\'Low'
+    issue: 'Out of Sweet n Low'
   }
 ];
 
