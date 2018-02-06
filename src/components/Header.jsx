@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-function Header(props){
+function Header(){
   return(
     <h1>Hot modules, dawg!</h1>
   );
