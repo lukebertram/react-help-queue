@@ -1,29 +1,77 @@
 # React Project Setup Instructions
+###### as compiled by Luke Bertram, Feb 2018
+
+Instructions for setting up a new React project according to the instructions in the [Epicodus React Curriculum](https://www.learnhowtoprogram.com/react/react-fundamentals) as of February 7th, 2018. It assumes you already have [Node Package Manager (npm)](https://www.npmjs.com/) installed on your machine.
+
+This guide contains a **'Quick Setup'** section intended to take you from an empty new project to a functional React project as quickly as possible. Complete versions of configuration files are presented once, each in its final form, for easy copying and pasting.
+
+Eventually this section will be followed by a **'Step-by-Step'** guide as well, which breaks down the setup process into the same functional chunks as the Epicodus curriculum -- but without the accompanying explanation. In this section, the same configuration files will be presented multiple times with relevant changes being made as new functionality is added to the project.
 
 ## Quick Setup
 
 ### Initialize NPM in New project
 Run `npm init` in new project directory
 
-### Install All Modules
-1. Install necessary global packages
+### Add `.gitignore` to Project
+`touch .gitignore` in the project's root directory and include the following entries:
 ```
-$ npm i -g webpack@3.4.0 webpack-dev-server@2.5.0 eslint eslint-plugin-react
-```
-2. Install dependencies
-```
-$ npm i react@15.5.4 react-dom@15.5.4 prop-types@15.6.0 react-router-dom@4.0.0 --save
-```
-3. Install dev dependencies
-```
-$ npm i --save-dev webpack@3.8.1 webpack-dev-server@2.5.0 babel-core@6.24.1
-babel-loader@7.0.0 babel-preset-env@1.6.1 babel-preset-es2015@6.24.1
-babel-preset-react@6.24.1 html-webpack-plugin@2.29.0
-react-hot-loader@3.0.0-beta.7 eslint@4.17.0 eslint-loader@1.9.0
-eslint-plugin-react@7.6.1 file-loader@1.1.6 url-loader@0.6.2
+.DS_STORE
+node_modules
+build
 ```
 
+### Install Global Modules
+Install necessary global packages from the command line
+```
+npm i -g webpack@3.4.0 webpack-dev-server@2.5.0 eslint eslint-plugin-react
+```
+
+### Add Scripts and Dependencies to Package.JSON File
+```
+{
+  "name": "project-name-here",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "lint": "eslint src/** src/**/**; exit 0",
+    "lint-fix": "eslint src/** src/**/** --fix; exit 0"
+  },
+  "author": "\"\"",
+  "license": "ISC",
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.0.0",
+    "styled-jsx": "^2.2.4"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^4.17.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-react": "^7.6.1",
+    "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.29.0",
+    "react-hot-loader": "^3.0.0-beta.7",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.5.0"
+  }
+}
+```
+
+### Install Dependencies
+Run `npm install` and fix yourself a drink.
+
 ### Add Webpack Configuration File
+`touch webpack.config.js` in root directory and add the following contents:
 ```
 const webpack = require('webpack');
 const { resolve } = require ('path');
@@ -89,7 +137,8 @@ module.exports = {
             "react"
           ],
           plugins: [
-            "react-hot-loader/babel"
+            "react-hot-loader/babel",
+            "styled-jsx/babel"
           ]
         }
       },
@@ -110,8 +159,8 @@ module.exports = {
 ```
 
 ### Add template.ejs file to project root dir
-`$ touch template.ejs`
-Add embedded javascript and HTML structure to `template.ejs`:
+`touch template.ejs`
+and add embedded javascript and HTML structure to template.ejs:
 ```
 <!DOCTYPE html>
   <head>
@@ -126,49 +175,8 @@ Add embedded javascript and HTML structure to `template.ejs`:
 </html>
 ```
 
-### Add Scripts to Package.JSON File
-```
-{
-  "name": "project-name-here",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server",
-    "lint": "eslint src/** src/**/**; exit 0",
-    "lint-fix": "eslint src/** src/**/** --fix; exit 0"
-  },
-  "author": "\"\"",
-  "license": "ISC",
-  "dependencies": {
-    "prop-types": "^15.6.0",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-router-dom": "^4.0.0"
-  },
-  "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "^7.0.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "eslint": "^4.17.0",
-    "eslint-loader": "^1.9.0",
-    "eslint-plugin-react": "^7.6.1",
-    "file-loader": "^1.1.6",
-    "html-webpack-plugin": "^2.29.0",
-    "react-hot-loader": "^3.0.0-beta.7",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.5.0"
-  }
-}
-
-```
-
 ### Add Rules to Linter Configuration File
-Initialize eslint with `$ eslint --init` and add the following rules to the eslintrc.json file
+Initialize eslint with `eslint --init` and add the following rules to the eslintrc.json file
 ```
 {
   "env": {
@@ -224,7 +232,100 @@ Initialize eslint with `$ eslint --init` and add the following rules to the esli
 
 ```
 
-## Step-by-Step Setup
+### Add project file structure
+`mkdir src` and `mkdir src/components` followed by `touch src/index.jsx src/components/App.jsx src/components/Error404.jsx`
+
+Fill in `src/index.jsx` like this:
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './components/App';
+import { AppContainer } from 'react-hot-loader';
+import { HashRouter } from 'react-router-dom';
+
+const render = (Component) => {
+  ReactDOM.render(
+    <AppContainer>
+      <HashRouter>
+        <Component/>
+      </HashRouter>
+    </AppContainer>,
+    document.getElementById('react-app-root')
+  );
+};
+
+render(App);
+
+/*eslint-disable */
+if (module.hot) {
+  module.hot.accept('./components/App', () => render(App));
+}
+/*eslint-enable */
+```
+
+Add the following boilerplate business to your `src/components/App.jsx` file:
+```
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Error404 from './Error404';
+
+function App(){
+  return (
+    <Switch>
+      <Route exact path='/' component={Default} />
+      <Route component={Error404} />
+    </Switch>
+  );
+}
+
+//delete the following component definition before use
+function Default(){
+  return(
+    <h1>Default Component/App/Router Works!</h1>
+  );
+}
+
+export default App;
+
+```
+Note: *the linter does not like it when you define more than one component in a file, so the above code will cause a linter error. This can be remedied by removing the offending Default component definition from App.jsx, importing a component of your own and setting it to your project's root route.*
+
+And finally, add some innards to your `src/components/Error404.jsx` file:
+```
+import React from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+function Error404(props){
+  return (
+    <div className='warning'>
+      <h2>The page {props.location.pathname} does not exist!</h2>
+      <h3>Would you like to return <Link to ="/">home</Link> instead?</h3>
+      <style jsx>{`
+        .warning{
+          background-color: red;
+          color: white;
+          font-family: Helvetica, Arial, sans-serif;
+          padding: 5px 10px;
+        }
+      `}</style>
+    </div>
+  );
+}
+
+Error404.propTypes = {
+  location: PropTypes.object
+};
+
+export default Error404;
+
+```
+
+### You're all done!
+
+---------------------------
+
+## Step-by-Step Setup (NOT YET COMPLETE)
 
 ### Initialize NPM in New Project
 
