@@ -8,6 +8,13 @@ import Error404 from './Error404';
 function App(){
   return (
     <div>
+      <style jsx global>{`
+        html, body {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+      `}</style>
       <Header/>
       <Switch>
         <Route exact path='/' component={TicketList} />
