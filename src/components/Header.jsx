@@ -11,6 +11,12 @@ function Header(){
       <img src={reactLogo} style={logoStyle} />
       <h1>Hot modules, dawg!</h1>
       <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
+      <style jsx>{`
+        div{
+          padding: 10px;
+          text-align: center;
+        }
+      `}</style>
     </div>
   );
 }
