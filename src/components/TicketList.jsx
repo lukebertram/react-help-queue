@@ -7,8 +7,8 @@ function TicketList(props){
   return(
     <div>
       <hr/>
-      {Object.keys(props.tickeList).map((ticket) => {
-        const ticket = props.ticketList[ticketId];
+      {Object.keys(props.ticketList).map((ticketId) => {
+        let ticket = props.ticketList[ticketId];
         return <Ticket
           names={ticket.names}
           location={ticket.location}

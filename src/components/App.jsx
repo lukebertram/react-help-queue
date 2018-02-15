@@ -51,6 +51,7 @@ class App extends React.Component {
   }
 
   render(){
+    console.table(this.state.masterTicketList);
     return (
       <div>
         <style jsx global>{`
