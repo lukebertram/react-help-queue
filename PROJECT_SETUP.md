@@ -390,3 +390,18 @@ $ npm i react-hot-loader@3.0.0-beta.7 --save-dev
 ```
 $ npm i react@15.5.4 react-dom@15.5.4 --save
 ```
+
+## Adding React-Redux to project
+
+### 1. Create the Redux Store
+
+### 2. Configure the React-Redux Provider
+
+### 3. Connect Components to store
+We'll use `connect()` in any components that require store access. This will outfit them with `dispatch()` and `mapStateToProps()` functionality.
+
+### 4. Dispatch Actions to Mutate Store State
+After connecting our components to the store, we'll `dispatch()` and action to save tickets in our new Redux store.
+
+### 5. Repeat.
+We must repeat steps 3 and 4 for any/all other components and state values that will now be managed by Redux

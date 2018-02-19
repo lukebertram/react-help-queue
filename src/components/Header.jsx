@@ -4,7 +4,7 @@ import reactLogo from '../assets/images/react-logo.svg';
 
 function Header(){
   let logoStyle ={
-    width: 500
+    width: 275
   };
   return(
     <div>

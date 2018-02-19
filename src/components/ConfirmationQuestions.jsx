@@ -5,8 +5,16 @@ import PropTypes from 'prop-types';
 function ConfirmationQuestions(props){
   return (
     <div>
-      <p>Have you seen things we people wouldn't believe?</p>
+      <p>Have you seen things we people wouldn't believe?</p><br/>
       <button onClick={props.onTroubleshootingConfirmation}>Yes</button>
+      <style jsx>{`
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+      `}</style>
     </div>
   );
 }

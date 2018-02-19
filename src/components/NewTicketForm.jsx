@@ -4,6 +4,7 @@ import { v4 } from 'uuid';
 import Moment from 'moment';
 
 function NewTicketForm(props){
+  console.log(props);
   let _names = null;
   let _location = null;
   let _issue = null;
@@ -40,6 +41,12 @@ function NewTicketForm(props){
           ref={(input) => _issue = input }/><br/>
         <button type='submit'>Hoilp!</button>
       </form>
+      <style jsx>{`
+        div{
+          display: flex;
+          justify-content: center;
+        }
+      `}</style>
     </div>
   );
 }
