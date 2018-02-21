@@ -9,6 +9,10 @@ import ticketListReducer from './reducers/ticket-list-reducer';
 
 const store = createStore(ticketListReducer);
 
+let unsubscribe = store.subscribe(() =>
+  console.log(store.getState())
+);
+
 const render = (Component) => {
   ReactDOM.render(
     <HashRouter>
