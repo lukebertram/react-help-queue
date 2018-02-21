@@ -5,9 +5,10 @@ import { HashRouter } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/App';
+import rootReducer from './reducers/index';
 import ticketListReducer from './reducers/ticket-list-reducer';
 
-const store = createStore(ticketListReducer);
+const store = createStore(rootReducer);
 
 let unsubscribe = store.subscribe(() =>
   console.log(store.getState())
