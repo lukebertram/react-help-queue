@@ -11,14 +11,6 @@ import Error404 from './Error404';
 
 class App extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedTicket: null
-    };
-    this.handleChangingSelectedTicket = this.handleChangingSelectedTicket.bind(this);
-  }
-
   componentDidMount() {
     this.waitTimeUpdateTimer = setInterval(() =>
       this.updateTicketElapsedWaitTime(),
@@ -36,10 +28,6 @@ class App extends React.Component {
     //   newMasterTicketList[ticketId].formattedWaitTime = (newMasterTicketList[ticketId].timeOpen).fromNow(true);
     // });
     // this.setState({masterTicketList: newMasterTicketList});
-  }
-
-  handleChangingSelectedTicket(ticketId){
-    this.setState({selectedTicket: ticketId});
   }
 
   render(){
@@ -65,10 +53,7 @@ class App extends React.Component {
             path='/admin'
             render={(props)=>
               <Admin
-                ticketList={this.props.masterTicketList}
-                currentRouterPath={props.location.pathname}
-                onTicketSelection={this.handleChangingSelectedTicket}
-                selectedTicket={this.state.selectedTicket} />} />
+                currentRouterPath={props.location.pathname} />} />
           <Route component={Error404} />
         </Switch>
       </div>

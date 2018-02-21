@@ -16,8 +16,7 @@ function Admin(props){
       {optionalSelectedTicketContent}
       <TicketList
         ticketList={props.ticketList}
-        currentRouterPath={props.currentRouterPath}
-        onTicketSelection={props.onTicketSelection} />
+        currentRouterPath={props.currentRouterPath}/>
       <style jsx>{`
         div{
           padding: 10px;
@@ -30,7 +29,6 @@ function Admin(props){
 Admin.propTypes = {
   ticketList: PropTypes.object,
   currentRouterPath: PropTypes.string.isRequired,
-  onTicketSelection: PropTypes.func.isRequired,
   selectedTicket: PropTypes.string
 };
 
